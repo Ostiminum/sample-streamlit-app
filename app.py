@@ -4,17 +4,19 @@ import pandas as pd
 st.title("My First Streamlit App")
 
 # Import data from CSV files as dataframes
+preference_dataframe = pd.read_csv("preference_data.csv")
+summary_matrix = pd.read_csv("preference_summary.csv")
 visitor_dataframe = pd.read_csv("visitor_data.csv")
 plant_dataframe = pd.read_csv("plant_data.csv")
 sales_dataframe = pd.read_csv("sales_data.csv")
 
-# Example 1: Display visitor as an interactable table
-st.header("Visitor Data (Interactable Table)")
-st.dataframe(visitor_dataframe)
+# Example 1: Display preference data as an interactable table
+st.header("Interactable Table")
+st.dataframe(preference_dataframe)
 
-# Example 2: Display visitor data as a static table
-st.header("Plant Height Data (Static Table)")
-st.table(plant_dataframe)
+# Example 2: Display preference summary matrix as a static table
+st.header("Static Table")
+st.table(summary_matrix)
 
 # Example 3: Display last visitor count as a metric
 last_recorded = visitor_dataframe["Count"].iloc[-1]

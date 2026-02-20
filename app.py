@@ -6,6 +6,7 @@ st.title("My First Streamlit App")
 # Import data from CSV files as dataframes
 visitor_dataframe = pd.read_csv("visitor_data.csv")
 plant_dataframe = pd.read_csv("plant_data.csv")
+sales_dataframe = pd.read_csv("sales_data.csv")
 
 # Example 1: Display visitor as an interactable table
 st.header("Visitor Data (Interactable Table)")
@@ -30,5 +31,7 @@ st.header("Bar Chart")
 st.bar_chart(plant_dataframe, x="Plant", y="Height (in cm)")
 
 # Example 5: Create line chart for visitor data
+sales_dataframe['Month'] = pd.to_datetime(sales_dataframe['Month'], format="%Y-%b")
+sales_dataframe = sales_dataframe.sort_values('Month')
 st.header("Line Chart")
-st.line_chart(visitor_dataframe, x="Year", y="Count")
+st.line_chart(sales_dataframe, x="Month", y="Sales")

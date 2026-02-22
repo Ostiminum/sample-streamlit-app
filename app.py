@@ -11,7 +11,7 @@ plant_dataframe = pd.read_csv("plant_data.csv")
 sales_dataframe = pd.read_csv("sales_data.csv")
 
 # Example 1: Display preference data as an interactable table
-st.header("Interactable Table")
+st.header("Interactive Table")
 st.dataframe(preference_dataframe)
 
 # Example 2: Display preference summary matrix as a static table
